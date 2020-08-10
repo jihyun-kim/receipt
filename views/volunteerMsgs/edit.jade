@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title 자원봉사 수정
+  body
+    h1 자원봉사 수정
+    hr
+    form#target(method='POST')
+      fieldset
+        legend 자원봉사수정
+        table
+          tr
+            td
+              label 일자
+            td
+              input(type='text', name='indate', value='#{data.indate}', disabled='')
+          tr
+            td
+              label 오더
+            td
+              input#ords(type='text', name='ords', value='#{JSON.stringify(data.ords)}')
+        input(type='submit')
+        

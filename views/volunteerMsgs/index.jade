@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title 자원봉사 관리
+  body
+    h1 자원봉사 관리
+    a(href='/volunteerMsgs/insert') INSERT DATA
+    hr
+    table(width='100%', border='1')
+      thead
+      tbody
+        tr
+          th 일자
+          th 오더
+        each item, index in data
+          tr
+            td= item.indate
+            td= JSON.stringify(item.ords)
+            td
+              a(href='/volunteerMsgs/delete/#{item.indate}') DELETE
+            td
+              a(href='/volunteerMsgs/edit/#{item.indate}') EDIT

@@ -1,0 +1,39 @@
+doctype html
+mixin deptDropDownList3(label, id, array)
+  label(for=id) #{label}
+   select(name=id placeholder=placeholder id=id)
+    each val, index in array
+      option(value="#{val.deptcd}") #{val.kname}
+
+html
+  head
+    title Insert Page
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    script.
+      $(document).ready(function() {
+        $("#dept").change( function(){
+          var dept = $('#dept').val();
+          console.log(dept);
+          $('div').append("<input type='text' name='depts[]' value=" + dept + "><br>");
+        });
+      });
+
+  body
+    h1 일별진료과 등록
+    hr
+    form(method='post')
+      fieldset
+        legend 접수일자 진료과
+        table
+          tr
+            td
+              label 접수일자
+            td
+              input(type='text', name='indate', value='#{today}')
+          tr
+            td
+              label 진료과
+            td
+              +deptDropDownList3('','dept', deptsAll )
+              div
+        input(type='submit')

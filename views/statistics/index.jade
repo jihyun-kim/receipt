@@ -1,0 +1,78 @@
+doctype html
+
+html
+  head
+    title 과별통계
+    meta(charset='utf-8')
+    script(src='/js/jquery.min.js')
+    script(src='/js/script_statistics.js')
+    script(src='/js/table-to-excel.js')
+
+   body 
+    h1 과별통계 
+    hr
+    form#target
+    // fieldset
+    legend 
+      div.clear
+      select#year(name="year")
+        option(value="") 선택하세요
+        option(value="2019") 2019
+        option(value="2020") 2020
+      label 년
+      select#month(name="month")
+        option(value="") 선택하세요
+        option(value="1") 1월
+        option(value="2") 2월
+        option(value="3") 3월
+        option(value="4") 4월
+        option(value="5") 5월
+        option(value="6") 6월
+        option(value="7") 7월
+        option(value="8") 8월
+        option(value="9") 9월
+        option(value="10") 10월
+        option(value="11") 11월
+        option(value="12") 12월
+      label 월
+      button#query(type='button') 생성
+      button#button1(type='button') 엑셀파일생성
+      div.clear
+      table#table(width='100%', border='1')
+        thead
+          tr
+            th No
+            th 진료과
+            th 소계
+            th 1
+            th 2
+            th 3
+            th 4
+            th 5
+            th 6
+            th 7
+            th 8
+            th 9
+            th 10
+            th 11
+            th 12
+            th 13
+            th 14
+            th 15
+            th 16
+            th 17
+            th 18
+            th 19
+            th 20
+            th 21
+            th 22
+            th 23
+            th 24
+            th 25
+            th 26
+            th 27
+            th 28
+            th 29
+            th 30
+            th 31
+        tbody

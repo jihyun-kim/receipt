@@ -1,0 +1,121 @@
+doctype html
+mixin deptDropDownList(label, id, array)
+  label(for=id) #{label}
+   select(name=id placeholder=placeholder id=id size=5)
+    //option(value="") 선택하세요
+    each val, index in array
+      option(value="#{val.deptcd}") #{val.kname}
+html
+  head
+    title 접수등록
+    meta(charset='utf-8')
+    //link(rel='stylesheet', href='/css/style.css')
+    style(type="text/css").
+      div#side_left{
+        width:500px;
+        height:550px;
+        background-color:Gainsboro;
+        float:left;
+        margin:5px;
+      }
+      #mid_content{
+      width:200px;
+      height:550px;
+      background-color:powderblue;
+      float:left;
+      margin:5px;
+      }
+      #side_rigth{
+      width:100px;
+      height:400px;
+      background-color:red;
+      float:left;
+      margin:5px;
+      }      
+      form label {
+        font-size: 15px;
+        width:100px;
+        float:left;
+        margin: 0 0;
+      }
+      blink {
+        animation: blinker 0.6s linear infinite;
+        color: #1c87c9;
+       }
+      @keyframes blinker {  
+        50% { opacity: 0; }
+       }
+      form legend {
+        font-size: 20px;
+        border-bottom: 2px dotted pink;
+        width: 100%;
+        padding: 5px 0;
+        font-weight: bold;
+      }
+          
+
+    script(src='/js/jquery.min.js')
+    script(src='/js/script_opdrpt.js')
+
+  body
+    h1 접수 등록
+    hr
+    form#target(method='post')
+     div#side_left
+      fieldset
+        legend 등록번호입력
+        blink#msg
+        //  p#msg
+        div.clear
+        label 등록번호
+        input#idno(type='text', size='4', align='left', name='idno' autofocus)
+        div.clear
+        label 접수일자
+        input#indate(type='text', size='8', align='left', name='indate', value='#{today}')
+        div.clear
+        legend 확인항목
+        label 성명
+        input#name(type='text', size='10', align='left', disabled)
+        div.clear
+        label 주민번호
+        input#juminA(type='text', size='4', align='left', disabled)
+        input#juminB(type='text', size='4', align='left', disabled)
+        div.clear
+        label 성별
+        input#gender(type="text", size='1', align='left', disabled)
+        div.clear
+        label 연령
+        input#age(type="text", size='1', align='left', disabled)
+        div.clear
+        label 국가코드
+        input#nationcd(type="text", size='1', align='left', disabled)
+        div.clear
+        label 주소
+        input#address(type='text', size='30', align='left', disabled)
+        div.clear
+        label 전화번호
+        input#telno(type='text', size='15', align='left', name='telno' , disabled)
+        div.clear
+        label 구분
+        input#gubun(type='text', size='1', align='left', name='gubun')
+        div.clear
+        div.clear
+        legend 필수항목
+        label 진료과
+        +deptDropDownList('','deptcd', deptsAll )
+        +deptDropDownList('','deptcd2', deptsAll2 )
+        div.depts
+        div.ords
+        div.status
+      fieldset
+        //legend
+        input(type='submit', size='10', align='left', value='저 장')
+        //button(type='submit', size='10', align='left') 저 장
+        //button#submit(type='text', size='10', align='left') 저 장
+     div#mid_content
+        table#table(width='100%', border='1')
+            thead
+            tbody
+              tr
+                th 진료일자
+                th 진료과

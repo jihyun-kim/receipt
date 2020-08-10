@@ -1,0 +1,247 @@
+doctype html
+html(lang='en')
+  head
+    title 처방등록
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/css/style.css')
+    style(type="text/css").
+      div#side_left{
+        width:450px;
+        height:800px;
+        background-color:Gainsboro;
+        float:left;
+        margin:5px;
+      }
+      div#mid_content{
+        width:740px;
+        height:800px;
+        background-color:powderblue;
+        float:left;
+        margin:5px;
+      }
+      div#side_rigth{
+        width:500px;
+        height:400px;
+        background-color:red;
+        float:left;
+        margin:5px;
+      }      
+      .highlight { 
+        background-color: red; 
+      } 
+      .scrolltable {
+        width: '100%'; height:750px;
+        display: block;
+        overflow: auto;
+      }   
+
+      .form-popup {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      right: 15px;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+      }
+      /* Add styles to the form container */
+      .form-container {
+      max-width: 600px;
+      padding: 10px;
+      background-color: white;
+      }
+      /* Full-width input fields */
+      .form-container input[type=text], .form-container input[type=password] {
+      width: 100%;
+      padding: 5px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+      }
+      /* When the inputs get focus, do something */
+      .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+      }
+      /* Set a style for the submit/login button */
+      .form-container .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom:10px;
+      opacity: 0.8;
+      }
+      /* Add some hover effects to buttons */
+      .form-container .btn:hover, .open-button:hover {
+      opacity: 1;
+      }
+      img.avatar {
+      border-radius: 50%;
+      margin: 12px 0 20px 0;
+      }
+    
+    script(src='/js/jquery.min.js')
+    script(src='/js/script_opdord3.js')
+
+  body
+    h2 처방등록
+    hr
+    form#target(method='post')
+      div#side_left
+        fieldset
+          legend 환자를 선택하여 주십시요.
+          div.clear
+          input#today(style='display:none;', type='text', name='today',value='#{today}')
+          input#uid(style='display:none;', type='text', name='uid',value='#{uid}')
+          table#table1.scrolltable(width='100%', border='1')
+            thead
+              tr
+                th 순서
+                th 등록번호
+                th 상태
+                th 성명
+                th 진료과
+      
+            tbody
+              each item, index in data
+                tr
+                  td(align='center')= ''
+                  td= item.idno
+                  td(style="display:none;")= item.indate
+                  td(style="display:none;")= item.depts
+                  td(style="display:none;")= item.depts_Index
+                  td(style="display:none;")= JSON.stringify(item.ords)
+                  td(align='center')= item.status
+                  td= item.name
+                  td= item.deptnm
+      div#mid_content
+        fieldset
+          legend 선택환자정보
+          label 등록번호
+          input#idno(type='text', name='idno')
+          div.clear
+          label 환자성명
+          input#name(type='text', name='name')
+          div.clear
+          label 접수일자
+          input#indate(type='text', name='indate')
+          div.clear
+          label 진료과
+          input#deptcd(type='text', name='deptcd')
+          input#depts(style='display:none;', type='text', name='depts')
+          input#ords(style='display:none;', type='text', name='ords')
+          div.clear
+          label 상태
+          input#status(type='text', name='status')
+          div.clear
+          br
+          br
+          br
+          br
+        fieldset
+          legend 처방입력
+          table#tblOrds
+            tbody
+              tr
+                th(colspan='2') 약국
+                th(colspan='3') 간호
+                th(colspan='2') 치과
+                th(colspan='2') 방사선
+                th(colspan='5') 초음파
+                th(colspan='5') 임상병리
+              tr
+                td 처방
+                td 향정
+                td 처치
+                td 주사
+                td 수술
+                td 스켈링
+                td 발치
+                td 판독
+                td 촬영
+                td 복부
+                td 부인
+                td 갑상선
+                td 심장
+                td 기타
+                td 혈당
+                td EKG
+                td 소변
+                td 의뢰
+                td 기타
+              tr
+            tbody
+                td
+                  input.tblInput#drug-order(type='Number', name='drug-order' value = 0)
+                td
+                  input.tblInput#drug-pastille(type='Number', name='drug-pastille' value = 0)
+                td
+                  input.tblInput#nurse-treatment(type='Number', name='nurse-treatment' value = 0)
+                td
+                  input.tblInput#nurse-injection(type='Number', name='nurse-injection' value = 0)
+                td
+                  input.tblInput#nurse-operation(type='Number', name='nurse-operation' value = 0)
+                td
+                  input.tblInput#dentist-scaling(type='Number', name='dentist-scaling' value = 0)
+                td
+                  input.tblInput#dentist-extraction(type='Number', name='dentist-extraction' value = 0)
+                td
+                  input.tblInput#rediation-reading(type='Number', name='rediation-reading' value = 0)
+                td
+                  input.tblInput#rediation-shooting(type='Number', name='rediation-shooting' value = 0)
+                td
+                  input.tblInput#ultrasonic-stomach(type='Number', name='ultrasonic-stomach' value = 0)
+                td
+                  input.tblInput#ultrasonic-gynecologist(type='Number', name='ultrasonic-gynecologist' value = 0)
+                td
+                  input.tblInput#ultrasonic-tyroid(type='Number', name='ultrasonic-tyroid' value = 0)
+                td
+                  input.tblInput#ultrasonic-heart(type='Number', name='ultrasonic-heart' value = 0)
+                td
+                  input.tblInput#ultrasonic-other(type='Number', name='ultrasonic-other' value = 0)
+                td
+                  input.tblInput#pathology-itself(type='Number', name='pathology-itself' value = 0)
+                td
+                  input.tblInput#pathology-ekg(type='Number', name='pathology-ekg' value = 0)
+                td
+                  input.tblInput#pathology-other(type='Number', name='pathology-other' value = 0)
+                td
+                  input.tblInput#pathology-request(type='Number', name='pathology-request' value = 0)
+                td
+                  input.tblInput#pathology-other2(type='Number', name='pathology-other2' value = 0)
+
+          P UID #{uid}
+          p 마우스 우클릭 ==> 페이지 새로고침 설정됨
+
+      div#side_right
+        fieldset
+          legend 처방저장확인
+          input(type='submit', value='저장')
+
+    //button.open-button(onclick='openForm()') Open Form
+    //button#openForm.open-button 환경설정
+    //img.avatar(src='/images/images.jpg', alt='Avatar')
+    img#openForm.avatar(src='/images/setup.png',width='25',height='25')
+    
+    #myForm.form-popup
+      form.form-container
+        fieldset
+        legend 환경설정
+        p 일자선택:
+        input#seleDate(type='text', name='seleDate') 
+        br
+        p 표시방법:
+          select#dispKey(name='dispKey')
+            option(value='2', select='') 상태모두
+            option(value='1') 상태0(접수)
+            option(value='0') 상태1(진료)
+          br
+        p 정렬순서:
+          select#sortKey(name='sortKey') exam
+            option(value='idno', select='') 등록번호
+            option(value='createdAt') 접수순서
+          br
+        input#rules(type='text', name='rules')
+        button#closeForm.btn.cancel(type='button') Close

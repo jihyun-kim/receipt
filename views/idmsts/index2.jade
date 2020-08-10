@@ -1,0 +1,61 @@
+doctype html
+
+html
+  head
+    title 환자기본 부분조회
+    script.
+      function liftFun() {
+        var x = document.getElementById("myValue").value;
+        var t = Number(x);
+        t = t - 25;
+        window.location =  '/idmsts/index2/' + '25&' + String(t);
+        document.getElementById("myValue").value = t;
+        if (t < 1){
+          document.getElementById("liftButton").disabled = true;
+        }
+      }
+
+      function rightFun() {
+        var x = document.getElementById("myValue").value;
+        var t = Number(x);
+        t = t + 25;
+        window.location =  '/idmsts/index2/' + '25&' + String(t);
+        document.getElementById("myValue").value = t;
+      }
+   body 
+    h1 환자기본 부분조회
+    a(href='/idmsts/insert') INSERT DATA
+    input#myValue(type='number',value=page)
+    button#liftButton(onclick='liftFun()') LIFT
+    button(onclick='rightFun()') RIGHT
+    hr
+    table(width='100%', border='1')
+      thead
+      tbody
+        tr
+          th 등록번호
+          th 등록번호구분
+          th 접수일자
+          th 성명
+          th 주민번호A
+          th 주민번호B
+          th 국가코드
+          th 주소
+          th 전화번호
+          th 메모
+        each item, index in data
+          tr
+            td= item.idno
+            td= item.idnogubun
+            td= item.indate
+            td= item.name
+            td= item.juminA
+            td= item.juminB
+            td= item.nationcd
+            td= item.address
+            td= item.telno
+            td= item.memo
+            td
+              a(href='/idmsts/delete/#{item.idno}') DELETE
+            td
+              a(href='/idmsts/edit/#{item.idno}') EDIT

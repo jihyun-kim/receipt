@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title 국가코드 등록
+  body
+    h1 국가코드 등록
+    hr
+    form(method='post')
+      fieldset
+        legend INSERT DATA
+        table
+          tr
+            td
+              label 국가코드
+            td
+              input(type='text', name='nationcd')
+          tr
+            td
+              label 한글명
+            td
+              input(type='text', name='kname')
+          tr
+            td
+              label 영문명
+            td
+              input(type='text', name='ename')
+          tr
+            td
+              label 순서
+            td
+              input(type='number', name='sqlno')
+        input(type='submit')

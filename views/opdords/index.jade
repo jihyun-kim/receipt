@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title 외래접수 조회?
+  body
+    h1 외래접수 조회?
+    a(href='/opdrpts/insert') INSERT DATA
+    hr
+    table(width='100%', border='1')
+      thead
+      tbody
+        tr
+          th 등록번호
+          th 접수일자
+          th 구분
+          th 진료과
+        each item, index in data
+          tr
+            td= item.idno
+            td= item.indate
+            td= item.depts
+            td= item.ords
+            td= item.status
+            td= item.gubun
+            td
+              a(href='/opdrpts/delete/#{item.idno}' + '&' + '#{item.indate}') DELETE
+            td
+              a(href='/opdrpts/edit/#{item.idno}' + '&' + '#{item.indate}') EDIT

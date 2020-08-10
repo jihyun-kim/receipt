@@ -1,0 +1,44 @@
+doctype html
+
+html
+  head
+    title 외래진료현황
+    meta(charset='utf-8')
+    script(src='/js/jquery.min.js')
+    script(src='/js/script_search2.js')
+
+
+   body 
+    h1 외래진료 현황
+    hr
+    form#target
+      legend 
+        div.clear
+        label 상태선택
+        select#select(name="select")
+          option(value="*", selected="selected") 모두
+          option(value="1") 접수
+          option(value="0") 진료
+        div.clear
+        span#15.c 
+        span 초 후에 새로운 정보를 가져옵니다.
+      legend 
+        div.clear
+        input#query(type='button', name='query', value='검색', style="display:none;")          
+        input#indate(type='text',  name='indate', value='#{today}', style="display:none;")
+        table#table(width='50%', border='0')
+          thead
+            tr
+              th 순서
+              th 등록번호
+              th 성명
+              th 진료과
+              th 상태
+          tbody
+            each item, index in data
+              tr
+                td(align='center')= ''
+                td(align='center')= item.idno
+                td(align='center')= item.name
+                td(align='center')= item.deptnm
+                td(align='center')= item.statusnm

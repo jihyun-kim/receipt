@@ -1,0 +1,44 @@
+doctype html
+
+html
+  head
+    title List Page
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    script(src='/js/jquery.min.js')
+    script(src='/js/script_search.js')
+
+   body 
+    h1 환자정보 검색
+    hr
+    form#target
+     fieldset
+      legend 
+        div.clear
+        label 검색항목
+        select#select(name="select")
+          option(value="") 선택하세요
+          option(value="name") 성명
+          option(value="juminA") 주민번호A
+          option(value="juminB") 주민번호B
+          option(value="address") 주소
+          option(value="telno") 전화번호
+        div.clear
+        label 검색어
+        input#query(type='text', name='query')
+        i(class='fa fa-search')
+        div.clear
+        table#table(width='100%', border='1')
+          thead
+            tr
+              th 등록번호
+              th 접수일자
+              th 성명
+              th 주민번호A
+              th 주민번호B
+              th 국가코드
+              th 주소
+              th 전화번호
+              th 메모
+          tbody

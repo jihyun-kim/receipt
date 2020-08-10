@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title 부서코드 등록
+  body
+    h1 부서코드 등록
+    hr
+    form(method='post')
+      fieldset
+        legend INSERT DATA
+        table
+          tr
+            td
+              label deptcd
+            td
+              input(type='text', name='deptcd')
+          tr
+            td
+              label 한글명
+            td
+              input(type='text', name='kname')
+          tr
+            td
+              label 영문명
+            td
+              input(type='text', name='ename')
+          tr
+            td
+              label 순서
+            td
+              input(type='number', name='sqlno')
+        input(type='submit')

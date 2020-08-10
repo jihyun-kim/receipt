@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title 자원봉사 등록
+    script(src='/js/jquery.min.js')
+    script(src='/js/script_volunteerMsgs.js')
+
+  body
+    h1 자원봉사 등록
+    hr
+    form(method='post')
+      fieldset
+        legend 자원봉사 관리
+        label 접수일자
+        input#indate(type='text', size='8', align='left', name='indate', value='#{today}')
+        table#table(width='40%', border='1')
+          thead
+            tr
+              th(width='5%') 코드
+              th(width='10%') 구분
+              th(width='10%') 상세
+              th(width='2%') 수량
+          tbody                  
+        input(type='submit')

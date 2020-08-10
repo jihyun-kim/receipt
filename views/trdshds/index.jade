@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title 일별진료과 조회
+  body
+    h1 일별진료과 조회
+    a(href='/trdshds/insert') INSERT DATA
+    hr
+    table(width='100%', border='1')
+      thead
+      tbody
+        tr
+          th 접수일자
+          th 진료과
+        each item, index in data
+          tr
+            td= item.indate
+            td= item.depts
+            td
+              a(href='/trdshds/delete/#{item.indate}') DELETE
+            td
+              a(href='/trdshds/edit/#{item.indate}') EDIT

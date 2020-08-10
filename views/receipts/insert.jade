@@ -1,0 +1,110 @@
+doctype html
+html(lang='en')
+  head
+    title JQuery Ajax - Bootstrap - NodeJS/Express 
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='http://code.jquery.com/jquery-1.7.js')
+    script(src='/js/getrequest2.js')
+    script(src='/js/postrequest.js')
+    script(src='/js/jquery.layout.js')
+    
+    script.
+      var chknew = false;
+      $(document).ready(function () {
+        $('body').layout({ 
+          applyDefaultStyles: true
+          , east__size:      "250" // 오른편 영역(pane) 사이즈 재정의
+          , west__size:      "550" // 오른편 영역(pane) 사이즈 재정의
+          , north__size:     "100" // 오른편 영역(pane) 사이즈 재정의
+          });
+      });
+
+  body
+    h1 Edit Page
+    hr
+    .ui-layout-north North
+          div
+              p
+              label 접수일자 :
+              input#indate(type='text')          
+              button#new-idno(type='button') 신환번호
+
+    .ui-layout-west 
+          h3 환자등록
+          div
+              label 등록번호:
+              input#idno(type='text')
+              button#in-idno(type='button') 확인
+              p
+              label 최초래원일자
+              input#cdate(type="text")
+              p
+              label 성명
+              input#kname(type='text')
+              p
+              label 성별
+              input#gender(type='text')
+              p
+              label 연령
+              input#age(type='text')
+              P
+              label 최초구분
+              input#gubun(type='text')
+              p
+              label 최초진료과
+              input#deptcd(type='text')
+              p
+              label 국가코드
+              input#nationcd(type='text')
+              p
+              label 주민번호
+              input#jumin(type='text')
+              p
+              label 주소
+              input#address(type='text')
+              p
+              label 전화번호
+              input#telno(type='text')
+            #getResultDiv2
+              ul.list-group
+
+
+
+    .ui-layout-south South
+  
+    .ui-layout-center
+      .container
+        .col-sm-4
+          h3 외래접수
+          div
+            form#userForm
+              .form-group
+                label(for='indo') 등록번호:
+                input#idno.form-control(type='text', name='idno', placeholder='등록번호')
+              .form-group
+                label(for='indate') 진료일자:
+                input#indate.form-control(type='text', name='indate', placeholder='진료일자')
+              .form-group
+                label(for='depts') 진료과:
+                input#depts.form-control(type='text', name='depts', placeholder='진료과')
+              .form-group
+                label(for='gubuns') 구분:
+                input#gubuns.form-control(type='text', name='gubuns' placeholder='구분')
+              button.btn.btn-default(type='submit') 저장
+              p test
+              tt#results
+          #postResultDiv
+          br
+    
+    .ui-layout-east
+      input#today(type='text') 
+      | 접수현황
+      #getResultDiv
+        ul.list-group
+
+    
+

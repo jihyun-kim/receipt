@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title 부서코드 수정
+  body
+    h1 부서코드 수정
+    hr
+    form(method='POST')
+      fieldset
+        legend Edit Data
+        table
+          tr
+            td
+              label deptcd
+            td
+              input(type='text', name='deptcd', value='#{data.deptcd}', disabled='')
+          tr
+            td
+              label 한글명
+            td
+              input(type='text', name='kname', value='#{data.kname}')
+          tr
+            td
+              label 영문명
+            td
+              input(type='text', name='ename', value='#{data.ename}')
+          tr
+            td
+              label 순서
+            td
+              input(type='number', name='sqlno', value='#{data.sqlno}')
+        input(type='submit')
+        

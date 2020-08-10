@@ -1,0 +1,30 @@
+doctype html
+mixin deptDropDownList2(label, id, id2, array)
+  label(for=id) #{label}
+   select(name=id placeholder=placeholder id=id)
+    option(selected='') #{id2}
+    each val, index in array
+      option(value="#{val.deptcd}") #{val.kname}
+
+html
+  head
+    title 일별진료과 수정
+  body
+    h1 일별진료과 수정
+    hr
+    form(method='post')
+      fieldset
+        legend Edit Data
+        table
+          tr
+            td
+              label 접수일자
+            td
+              input(type='text', name='indate', value='#{data.indate}')
+          tr
+            td
+              label 진료과
+            td
+              +deptDropDownList2('','deptcd', depts.deptcd, depts )
+              //input(type='text', name='deptcd', value='#{data.deptcd}')
+        input(type='submit')

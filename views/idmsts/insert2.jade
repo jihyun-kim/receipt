@@ -1,0 +1,71 @@
+////////////////////////////////////
+// 신환환자 등록 화면
+////////////////////////////////////
+// style
+// js
+////////////////////////////////////
+doctype html
+mixin nationDropDownList(label, id, array)
+  label(for=id) #{label}
+   select(name=id placeholder=placeholder id=id)
+    option(value="") 선택하세요
+    each val, index in array
+      option(value="#{val.nationcd}") #{val.kname}
+
+html
+  head
+    title 신환등록
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='/js/jquery.min.js')
+    script(src='/js/script_idmst.js')
+
+  body
+    h1 신환등록
+    hr
+
+    form#target(name='frm', method='post')
+      button#maxidno(type='button') 신환번호 
+      | &nbsp;&nbsp;&nbsp;&nbsp;
+      button#maxidno9(type='button') 임시번호
+      fieldset
+        legend 필수 입력 
+        label(for="idno") 등록번호
+        input#idno(type='text', name='idno')
+        div.clear
+        label(for="idnogubun") 번호구분
+        input#idnogubun(type='text', name='idnogubun', readonly)
+        div.clear
+        label(for="indate") 접수일자
+        input(type='text', name='indate', value="#{indate}")
+        div.clear
+        label(for="name") 성명
+        input#name(type='text', name='name')
+        div.clear
+        label(for="juminA") 주민번호
+        input#juminA(type='text', name='juminA')
+        input#juminB(type='text', name='juminB')
+        div.clear
+        label(for="") 연령
+        input#age(type='text' size="3" disabled)
+        div.clear
+        label(for="") 성별
+        input#gender(type='text' size="3" disabled)
+        div.clear
+        label(for="nationcd") 국가코드
+        +nationDropDownList('','nationcd', nations )
+        div.clear
+        legend 선택 사항 
+        label(for="address") 주소
+        input(type='text', name='address')
+        div.clear
+        label(for="telno") 전화번호
+        input(type='text', name='telno')
+        div.clear
+        label 메모
+        textarea(name='memo', cols="50", rows="5")
+        div.clear
+      div#button
+        input(type='submit', value='저장')
+
+

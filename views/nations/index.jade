@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title 국가코드 관리
+  body
+    h1 국가코드 관리
+    a(href='/nations/insert') INSERT DATA
+    hr
+    table(width='100%', border='1')
+      thead
+      tbody
+        tr
+          th 국가코드
+          th 한글명
+          th 영문명
+          th 순서
+        each item, index in data
+          tr
+            td= item.nationcd
+            td= item.kname
+            td= item.ename
+            td= item.sqlno
+            td
+              a(href='/nations/delete/#{item.nationcd}') DELETE
+            td
+              a(href='/nations/edit/#{item.nationcd}') EDIT

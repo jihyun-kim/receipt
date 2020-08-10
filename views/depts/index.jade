@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title 부서코드 관리
+  body
+    h1 부서코드 관리
+    a(href='/depts/insert') INSERT DATA
+    hr
+    table(width='100%', border='1')
+      thead
+      tbody
+        tr
+          th deptcd
+          th 한글명
+          th 영문명
+          th 순서
+        each item, index in data
+          tr
+            td= item.deptcd
+            td= item.kname
+            td= item.ename
+            td= item.sqlno
+            td
+              a(href='/depts/delete/#{item.deptcd}') DELETE
+            td
+              a(href='/depts/edit/#{item.deptcd}') EDIT

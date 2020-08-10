@@ -1,0 +1,129 @@
+doctype html
+html
+  head
+    title 안산빈센트의원 외래업무
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style(type="text/css").
+      div#side_left{
+        width:350px;
+        height:450px;
+        background-color:Gainsboro;
+        float:left;
+        margin:5px;
+      }
+      div#mid_content{
+        width:350px;
+        height:450px;
+        background-color:powderblue;
+        float:left;
+        margin:5px;
+      }
+      div#side_rigth{
+        width:350px;
+        height:450px;
+        background-color:red;
+        float:left;
+        margin:5px;
+      }      
+      div#under{
+        width:'100%';
+        height:'100%';
+        background-color:Gainsboro;
+        margin:5px;
+      }
+      .highlight { 
+        background-color: red; 
+      }    
+
+  body
+    h1 안산빈센트의원 외래업무
+    p 신환등록, 당일접수, 처방입력 및 통계
+    hr
+    div#side_left
+     fieldset
+      h2 등록업무
+      br
+      a(href='/trdshds/insert2') 진료일자별 진료과 
+      br
+      br
+      a(href='/idmsts/insert2') 신환
+      br
+      br
+      a(href='/opdrpts/insert2') 접수
+      br
+      br
+      a(href='/opdords/insert3') 처방
+      br
+      br
+      a(href='/opdrpts/insert3') 추가 접수
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+
+    div#mid_content
+     fieldset
+      h2 통계
+      a(href='/statistics/index') 과별통계
+      br
+      a(href='/statistics/index2') 국가별통계
+      br
+      a(href='/statistics/index3') 종합통계
+      br
+      br
+      br
+      h2 검색 
+      a(href='/searchs/index') 환자기본
+      br
+      a(href='/searchs/index2') 외래진료현황
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+
+    div#side_right
+     fieldset
+      h2 관리자 페이지
+      a(href='/nations/index') 국가코드
+      br
+      a(href='/depts/index') 부서코드
+      br
+      br
+      //a(href='/idmsts/index') 환자기본 조회
+      br
+      a(href='/idmsts/index2/25&0') 환자기본 부분 조회
+      br
+      a(href='/idmsts/index3/00001') 환자기본 개별 조회
+      br
+      br
+      a(href='/opdrpts/index/1') 외래접수 조회
+      br
+      a(href='/opdrpts/index2/25&0') 외래접수 부분 조회
+      br
+      a(href='/opdrpts/index3/12345') 외래접수 개별 조회
+      br
+      br
+      a(href='/trdshds/index') 일별진료과 조회
+      br
+      br
+      br
+      a(href='/volunteers/index') 자원봉사코드 관리
+       br
+      a(href='/volunteerMsgs/insert2') 자원봉사 등록
+       br
+      a(href='/volunteerMsgs/index') 자원봉사 관리
+      br
+      br
+    div#under
+     fieldset
+      h2 안내(V5.5)
+      p 시작 화면 변경
+

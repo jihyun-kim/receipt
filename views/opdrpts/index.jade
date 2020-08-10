@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title 외래접수 조회
+    style(type="text/css").
+      .highlight { 
+        background-color: yellow; 
+      }     
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    script. 
+      $(document).ready(function() {
+        $("#table1 tr").click(function(){
+          //alert($(this).text());
+          $(this).toggleClass("highlight");
+        });
+        $("#skey0").click(function(){
+          $(location).attr('href', '/opdrpts/index/0')
+        });
+        $("#skey1").click(function(){
+          $(location).attr('href', '/opdrpts/index/1')
+        });
+
+
+      });
+
+  body
+    h1 외래접수 조회
+    a(href='/opdrpts/insert') INSERT DATA
+    button#skey0 접수순서
+    button#skey1 당일-번호순서
+    hr
+    table#table1(width='100%', border='1')
+      thead
+      tbody
+        tr
+          th 등록번호
+          th 접수일자
+          th 진료과
+          th 오더
+          th 상태
+          th 구분
+        each item, index in data
+          tr
+            td= item.idno
+            td= item.indate
+            td= item.depts
+            td= JSON.stringify(item.ords)
+            td= item.status
+            td= item.gubun
+            td
+              a(href='/opdrpts/delete/#{item.idno}' + '&' + '#{item.indate}') DELETE
+            td
+              a(href='/opdrpts/edit/#{item.idno}' + '&' + '#{item.indate}') EDIT

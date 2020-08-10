@@ -1,0 +1,53 @@
+doctype html
+mixin deptDropDownList(label, id, array)
+  label(for=id) #{label}
+   select(name=id placeholder=placeholder id=id)
+    each val, index in array
+      option(value="#{val.deptcd}") #{val.kname}
+html
+  head
+    title Edit Page
+    script(src="https://code.jquery.com/jquery-1.10.2.js")
+    script.
+      $(document).ready(function() {
+        $("#deptcd").change( function() {
+          var dept = $('#deptcd').val();
+          console.log(dept);
+          $('div').append("<input type='text' name='depts[]' value=" + dept + ">");
+        });
+      });
+  body
+    h1 Edit Page
+    hr
+    form(method='post')
+      fieldset
+        legend Edit Data
+        table
+          tr
+            td
+              label 등록번호
+            td
+              input(type='text', name='idno' )
+          tr
+            td
+              label 접수일자
+            td
+              input#indate(type='text', name='indate', value='#{today}')
+          tr
+            td
+              label 진료과
+            td
+              +deptDropDownList('','deptcd', deptsAll )
+              div
+          tr
+            td
+              label 오더
+            td
+              +deptDropDownList('','deptcd', deptsAll )
+              div
+          tr
+            td
+              label 구분
+            td
+              input(type='text', name='gubuns')
+        input(type='submit')

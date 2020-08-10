@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title Edit Page
+  body
+    h1 Edit Page
+    hr
+    form(method='post')
+      fieldset
+        legend Edit Data
+        table
+          tr
+            td
+              label 등록번호
+            td
+              input(type='text', name='idno', value='#{data.idno}', disabled='')
+          tr
+            td
+              label 접수일자
+            td
+              input(type='text', name='indate', value='#{data.indate}')
+          tr
+            td
+              label 진료과
+            td
+              each dept, index in data.depts
+                input(type='text', name='depts[' + index + ']', value='#{data.depts[index]}')
+          // 오더는 특성상 OBJECT이므로, 변경하는데 문제점이 많음 그래서 수정 못하고, 프로그램으로 UPDATE, CLEAR
+          //tr
+          //  td
+          //    label 오더
+          //  td
+          //    each ords, index in data.ords
+          //      input(type='text', name='ords[' + index + ']', value='#{data.ords[index]}')
+          tr
+            td
+              label 상태
+            td
+              each status, index in data.status
+                input(type='text', name='status[' + index + ']', value='#{data.status[index]}')
+          tr
+            td
+              label 구분
+            td
+              input(type='text', name='gubuns', value='#{data.gubun}')
+        input(type='submit')

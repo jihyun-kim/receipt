@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title 자원봉사코드 관리
+  body
+    h1 자원봉사코드 관리
+    a(href='/volunteers/insert') INSERT DATA
+    hr
+    table(width='100%', border='1')
+      thead
+      tbody
+        tr
+          th 코드
+          th 구분
+          th 상세
+          th 상태
+          th 순서
+        each item, index in data
+          tr
+            td= item.vcode
+            td= item.gubun
+            td= item.detail
+            td= item.status
+            td= item.sqlno
+            td
+              a(href='/volunteers/delete/#{item.vcode}') DELETE
+            td
+              a(href='/volunteers/edit/#{item.vcode}') EDIT

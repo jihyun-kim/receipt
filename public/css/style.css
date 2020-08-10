@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+/*    
+   style.css      
+*/
+	
+body {
+	font-size: 120%; /* 16px x 0.75 = 12px */
+	line-height: 1.2; /* 12px x 1.5 = 18px */
+}
+form {
+	margin:0 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+form fieldset {
+	padding:10px 0 20px 5px;
+	border:none;
+}
+form legend {
+	font-size: 20px;
+	border-bottom: 2px dotted pink;
+	width: 100%;
+	padding: 5px 0;
+	font-weight: bold;
+}
+form label {
+	font-size: 20px;
+	width:200px;
+	float: left;
+	margin: 5px 0;
+}
+form input {
+	font-size: 20px;
+	/* width:160px; */
+	float: left;
+	margin: 5px 0;
+}
+form select {
+	font-size: 20px;
+	width:160px;
+	float: left;
+	margin: 5px 0;
+}.clear {
+	clear:both;
+}
+#button {
+	text-align: center;
+}
+#tblOrds {
+	font-size: 15px;
+	width: 700px;
+    border: 1px solid #444444;	
+	text-align: center;
+	padding: 20px;
+	margin : 20px 10px;
+	table-layout: fixed;
+}
+th, td {
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+}
+.tblInput {
+	width: 25px;
+	font-size: 15px;
+	text-align: right;
+}
+div.depts {
+	display: inline;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	font-weight: bold;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
