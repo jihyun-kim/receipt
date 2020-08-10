@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('passport');
+const moment = require('moment');
 
 // passport
 router.get('/login', (req, res) => {
@@ -9,7 +10,7 @@ router.get('/login', (req, res) => {
 
 router.post('/login', function(req, res, next) {
   passport.authenticate('login', function(err, user, info) { // "login"이라는 LocalStrategy를 사용하여 session 처리
-    console.log('--user--',user)
+    console.log('--user--',user, moment().format() );
       if (err) {
           next(err);
       }
