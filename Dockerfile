@@ -1,5 +1,5 @@
 #어떤 이미지로부터 새로운 이미지를 생성할지를 지정
-FROM node:6.2.2
+FROM node:12.18.0
 
 #Dockerfile 을 생성/관리하는 사람
 MAINTAINER JIHYUN-KIM <jihyun@cmcnu.or.kr>
