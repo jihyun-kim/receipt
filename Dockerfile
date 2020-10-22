@@ -4,6 +4,9 @@ FROM node:12.18.0
 #Dockerfile 을 생성/관리하는 사람
 MAINTAINER JIHYUN-KIM <jihyun@cmcnu.or.kr>
 
+# Localtime 설정
+RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
 # /app 디렉토리 생성
 RUN mkdir -p /app
 
