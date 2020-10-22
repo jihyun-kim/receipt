@@ -10,7 +10,7 @@ router.get('/login', (req, res) => {
 
 router.post('/login', function(req, res, next) {
   passport.authenticate('login', function(err, user, info) { // "login"이라는 LocalStrategy를 사용하여 session 처리
-    console.log('--user--',user, moment().format() );
+    console.log('--user--',user, moment().format('YYYY MM DD HH:mm:ss') );
       if (err) {
           next(err);
       }
