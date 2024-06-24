@@ -147,7 +147,7 @@ html(lang='en')
               tr
                 th(colspan='2') 약국
                 th(colspan='3') 간호
-                th(colspan='2') 치과
+                th(colspan='4') 치과
                 th(colspan='2') 방사선
                 th(colspan='5') 초음파
                 th(colspan='5') 임상병리
@@ -157,6 +157,8 @@ html(lang='en')
                 td 처치
                 td 주사
                 td 수술
+                td x-ray 
+                td 시술
                 td 스켈링
                 td 발치
                 td 판독
@@ -183,6 +185,10 @@ html(lang='en')
                   input.tblInput#nurse-injection(type='Number', name='nurse-injection' value = 0)
                 td
                   input.tblInput#nurse-operation(type='Number', name='nurse-operation' value = 0)
+                td
+                  input.tblInput#dentist-xray(type='Number', name='dentist-xray' value = 0)
+                td
+                  input.tblInput#dentist-procedure(type='Number', name='dentist-procedure' value = 0)
                 td
                   input.tblInput#dentist-scaling(type='Number', name='dentist-scaling' value = 0)
                 td

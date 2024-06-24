@@ -119,6 +119,12 @@ function orderUpdate(ords){
 		if (property == 'nurse-operation') {
 			$('#nurse-operation').val(Obj[property]);
 		}
+		if (property == 'dentist-xray') {
+			$('#dentist-xray').val(Obj[property]);
+		}
+		if (property == 'dentist-procedure') {
+			$('#dentist-procedure').val(Obj[property]);
+		}
 		if (property == 'dentist-scaling') {
 			$('#dentist-scaling').val(Obj[property]);
 		}
